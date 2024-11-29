@@ -1,0 +1,20 @@
+Algorithm for ADC Reading and UART Communication
+ADC Initialization:
+
+Configure ADC input pin (P0.28) and set up ADC control register for conversion.
+UART Initialization:
+
+Set up UART0 for communication (baud rate, line control, etc.).
+Start ADC Conversion:
+
+Trigger ADC conversion by setting the control register.
+Wait for Conversion:
+
+Wait until the ADC conversion is complete.
+Read and Convert Data:
+
+Extract the 10-bit ADC result and convert it to hexadecimal ASCII.
+Transmit Data via UART:
+
+Send the ASCII values of the ADC result over UART.
+Repeat Process:
