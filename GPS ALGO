@@ -1,0 +1,24 @@
+Algorithm for GPS Data Parsing and Display:
+Initialization:
+
+Configure UART0 and UART1 using UART0Init() and UART1Init().
+Set up UART0 for output and UART1 for receiving GPS data.
+Wait for GPS Data Start:
+
+Continuously read data from UART1 until the start character $ is detected.
+Check for Valid Data:
+
+Skip the next three characters.
+If the next character is R:
+Skip 15 more characters and check if the next character is V.
+If V, output "Invalid GPS string" via UART0 and return to step 2.
+Parse Latitude and Longitude:
+
+Read and store the next 24 characters into an array (rcv_array).
+The first 11 characters represent latitude.
+Characters 12 to 23 represent longitude.
+Display Parsed Data:
+
+Send "Latitude=" followed by the first 11 characters of rcv_array via UART0.
+Send "Longitude=" followed by the next 12 characters of rcv_array via UART0.
+Repeat:
