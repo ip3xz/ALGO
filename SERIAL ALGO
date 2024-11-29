@@ -1,0 +1,38 @@
+Algorithm for Transmitting and Receiving Single Character:
+Initialization:
+
+Configure the pins for UART0 using PINSEL0 register.
+Enable and reset the UART FIFO using U0FCR.
+Set the baud rate by configuring U0DLL and U0DLM.
+Configure the data format (8-bit data, 1 stop bit, no parity) using U0LCR.
+Transmission and Reception:
+
+Receive a character:
+Wait until the Receiver Data Ready (U0LSR & 0x01) is set.
+Read the received data from U0RBR.
+Transmit a character:
+Wait until the Transmitter Holding Register Empty (U0LSR & 0x20) is set.
+Write the data to be transmitted to U0THR.
+End of Program:
+
+Exit the main loop or continue the process as required.
+-------------------------------------------------------------------------------------------------
+Algorithm for Transmitting and Receiving String:
+Initialization:
+
+Configure the pins for UART0 using PINSEL0 register.
+Enable and reset the UART FIFO using U0FCR.
+Set the baud rate by configuring U0DLL and U0DLM.
+Configure the data format (8-bit data, 1 stop bit, no parity) using U0LCR.
+Main Loop (Transmit and Receive):
+
+Receive a character:
+Wait until the Receiver Data Ready (U0LSR & 0x01) is set.
+Read the received data from U0RBR.
+Echo back the received character:
+Wait until the Transmitter Holding Register Empty (U0LSR & 0x20) is set.
+Write the received data to U0THR.
+Repeat the process in a loop until a termination condition (like receiving a newline) is met.
+End of Program:
+
+Exit the loop or continue handling other tasks.
