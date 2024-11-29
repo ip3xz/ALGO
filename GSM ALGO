@@ -1,0 +1,28 @@
+Algorithm for GSM Communication Program:
+Initialize UART:
+
+Call UART0Init() to configure UART0 for serial communication.
+Call UART1Init() to configure UART1 for GSM communication.
+Display Startup Message:
+
+Send the message "GSM program started UART initialized" via UART0.
+Send AT Commands to GSM Module:
+
+Send AT command to check GSM module connectivity.
+Display the command on UART0 for debugging.
+Make a Call:
+
+Send the ATD command with the phone number to initiate a call.
+Delay for 30 seconds to simulate call duration.
+Send the ATH command to disconnect the call.
+Send an SMS:
+
+Send the AT+CMGF=1 command to set the GSM module to text mode.
+Send the AT+CMGS command with the recipient's phone number.
+Send the text message content (hello rohini).
+Send the Ctrl+Z character (0x1A) to indicate the end of the message.
+Display the progress on UART0 for debugging.
+Task Completion:
+
+Display the completion message "task cmplt" on UART0.
+Continuous Loop:
