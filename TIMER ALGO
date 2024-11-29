@@ -1,0 +1,20 @@
+Algorithm for LED Blinking Program using LPC214x Timer:
+Initialize Timer:
+
+Configure Timer 0 (T0PR) for a prescale value to generate a 1 millisecond delay.
+Reset the Timer Counter (T0TC) to 0 before starting the timer.
+Set GPIO Pins as Output:
+
+Configure IO1DIR to set Port 1 pins as output by writing 0xFFFFFFFF (all pins as output).
+Infinite Loop for LED Blinking:
+
+In each iteration:
+Turn on the LEDs by setting high bits on IOSET1 (0xFF000000 for the higher byte of Port 1).
+Call the delay function for 1000 milliseconds (1 second).
+Turn off the LEDs by clearing the bits on IOCLR1.
+Call the delay function for another 1000 milliseconds.
+Delay Function:
+
+Start the timer (T0TCR = 0x01).
+Wait until the Timer Counter (T0TC) matches the desired millisecond delay.
+Stop the timer (T0TCR = 0x00) once the delay is achieved.
